@@ -16,44 +16,54 @@
 ### Association
 
 has_many :items
+has_many :purchases
 
 ## items テーブル
 
-| Colum        | Type      | Option   |
-| ------------ | --------- | -------- |
-| name   | string     | NOT NULL |
-| description | text       | NOT NULL |
-| category    |            |          |
-| condition   |            |          |
-| burden      |            |          |
-| area        |            |          |
-| days        |            |          |
-| price       | integer    | NOT NULL |
-| user        | references |          |
+| Colum       | Type       | Option            |
+| ----------- | ---------- | ----------------- |
+| name        | string     | NOT NULL          |
+| description | text       | NOT NULL          |
+| category    | integer    | NOT NULL          |
+| condition   | integer    | NOT NULL          |
+| burden      | integer    | NOT NULL          |
+| area        | integer    | NOT NULL          |
+| days        | integer    | NOT NULL          |
+| price       | integer    | NOT NULL          |
+| user        | references | foreign_key: true |
 
 ### Association
 
-belongs_to :users
-has_one :purchases
-has_one :addresses
+belongs_to :user
+has_one :purchase
+
 
 ## purchases テーブル
 
-| Colum         | Type       | Options  |
-| ------------- | ---------- | -------- |
-| item          | references |          |
+| Colum | Type       | Options           |
+| ----- | ---------- | ----------------- |
+| item  | references | foreign_key: true |
+| user  | references | foreign_key: true |
 
 ### Association
 
+belongs_to :user
 belongs_to :item
+has_one :address
 
 
 ##　addresses テーブル
 
-| Colum         | Type       | Options |
-| ------------- | ---------- | --------|
-| item          | references |         |
+| Colum         | Type         | Options           |
+| ------------- | ------------ | ------------------|
+| post_code     | integer      | NOT NULL          |
+| municipality  | string       | NOT NULL          |
+| house_number  | string       | NOT NULL          |
+| building_name | string       |                   |
+| phone_number  | integer      | NOT NULL          |
+| item          | references   | foreign_key: true |
+| user          | references   | foreign_key: true |
 
 ### Association
 
-belongs_to :item
+belongs_to :purchase
