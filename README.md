@@ -4,14 +4,14 @@
 
 | Column          | Type   | Options  |
 | --------------- | ------ | -------- |
-| nick_name       | string | NOT NULL |
-| email           | string | NOT NULL |
-| password        | string | NOT NULL |
-| first_name      | string | NOT NULL |
-| last_name       | string | NOT NULL |
-| first_name_kana | string | NOT NULL |
-| last_name_kana  | string | NOT NULL |
-| birth_date      | date   | NOT NULL |
+| nick_name       | string | null:false |
+| email           | string | null:false |
+| password        | string | null:false |
+| first_name      | string | null:false |
+| last_name       | string | null:false |
+| first_name_kana | string | null:false |
+| last_name_kana  | string | null:false |
+| birth_date      | date   | null:false |
 
 ### Association
 
@@ -22,14 +22,14 @@ has_many :purchases
 
 | Colum        | Type       | Option            |
 | ------------ | ---------- | ----------------- |
-| name         | string     | NOT NULL          |
-| description  | text       | NOT NULL          |
-| category_id  | integer    | NOT NULL          |
-| condition_id | integer    | NOT NULL          |
-| burden_id    | integer    | NOT NULL          |
-| area_id      | integer    | NOT NULL          |
-| days_id      | integer    | NOT NULL          |
-| price        | integer    | NOT NULL          |
+| name         | string     | null:false        |
+| description  | text       | null:false        |
+| category_id  | integer    | null:false        |
+| condition_id | integer    | null:false        |
+| burden_id    | integer    | null:false        |
+| area_id      | integer    | null:false        |
+| days_id      | integer    | null:false        |
+| price        | integer    | null:false        |
 | user         | references | foreign_key: true |
 
 ### Association
@@ -56,10 +56,10 @@ has_one :address
 
 | Colum         | Type         | Options           |
 | ------------- | ------------ | ------------------|
-| post_code     | string       | NOT NULL          |
-| area_id       | integer      | NOT NULL          |
-| municipality  | string       | NOT NULL          |
-| house_number  | string       | NOT NULL          |
+| post_code     | string       | null:false        |
+| area_id       | integer      | null:false        |
+| municipality  | string       | null:false        |
+| house_number  | string       | null:false        |
 | building_name | string       |                   |
 | phone_number  | integer      | NOT NULL          |
 | purchase      | references   | foreign_key: true |
