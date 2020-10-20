@@ -56,6 +56,7 @@ has_one :address
 
 | Colum         | Type         | Options           |
 | ------------- | ------------ | ------------------|
+| post_code     | string       | NOT NULL          |
 | area_id       | integer      | NOT NULL          |
 | municipality  | string       | NOT NULL          |
 | house_number  | string       | NOT NULL          |
