@@ -20,17 +20,17 @@ has_many :purchases
 
 ## items テーブル
 
-| Colum       | Type       | Option            |
-| ----------- | ---------- | ----------------- |
-| name        | string     | NOT NULL          |
-| description | text       | NOT NULL          |
-| category    | integer    | NOT NULL          |
-| condition   | integer    | NOT NULL          |
-| burden      | integer    | NOT NULL          |
-| area        | integer    | NOT NULL          |
-| days        | integer    | NOT NULL          |
-| price       | integer    | NOT NULL          |
-| user        | references | foreign_key: true |
+| Colum        | Type       | Option            |
+| ------------ | ---------- | ----------------- |
+| name         | string     | NOT NULL          |
+| description  | text       | NOT NULL          |
+| category_id  | integer    | NOT NULL          |
+| condition_id | integer    | NOT NULL          |
+| burden_id    | integer    | NOT NULL          |
+| area_id      | integer    | NOT NULL          |
+| days_id      | integer    | NOT NULL          |
+| price        | integer    | NOT NULL          |
+| user         | references | foreign_key: true |
 
 ### Association
 
@@ -56,13 +56,13 @@ has_one :address
 
 | Colum         | Type         | Options           |
 | ------------- | ------------ | ------------------|
-| post_code     | integer      | NOT NULL          |
+| area_id       | integer      | NOT NULL          |
 | municipality  | string       | NOT NULL          |
 | house_number  | string       | NOT NULL          |
 | building_name | string       |                   |
 | phone_number  | integer      | NOT NULL          |
-| item          | references   | foreign_key: true |
-| user          | references   | foreign_key: true |
+| purchase      | references   | foreign_key: true |
+
 
 ### Association
 
