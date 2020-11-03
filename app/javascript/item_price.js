@@ -1,4 +1,5 @@
 window.addEventListener('load', () => {
+  console.log("hoge")
   const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
     const inputValue = priceInput.value;
