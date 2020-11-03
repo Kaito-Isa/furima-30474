@@ -10,18 +10,6 @@ RSpec.describe Item, type: :model do
       it "画像と商品名、説明文、カテゴリー、商品状態、配送料負担、発送元地域、発送日数、販売価格があれば保存できる" do
         expect(@item).to be_valid
       end
-      it "商品名が40文字以内であれば保存できる" do
-        @item.name = "aaa"
-        expect(@item).to be_valid
-      end
-      it "説明文が1000文字以内であれば保存できる" do
-        @item.description = "aaaa"
-        expect(@item).to be_valid
-      end
-      it "販売価格が300~9999999であれば保存できる" do
-        @item.price = "30000"
-        expect(@item).to be_valid
-      end
     end
 
     context "出品が保存できない場合" do
