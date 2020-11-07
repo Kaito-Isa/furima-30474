@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :redirect_root, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -46,6 +47,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name,:description,:category_id,:condition_id,:burden_id,:area_id,:days_id,:price,:image).merge(user_id: current_user.id)
+  end
+
+  def redirect_root
+    redirect_to root_path unless user_signed_in?
   end
 
   def set_item
