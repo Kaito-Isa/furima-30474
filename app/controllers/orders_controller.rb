@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :sold_out_item, only: [:index, :create]
+  before_action :set_item, only: [:index, :create]
   before_action :authenticate_user!, only: [:index]
 
   def index
@@ -39,8 +39,6 @@ class OrdersController < ApplicationController
     )
   end
 
-  def sold_out_item
+  def set_item
     @item = Item.find(params[:item_id])
-    redirect_to root_path if @item.order.present?
-  end
   end
