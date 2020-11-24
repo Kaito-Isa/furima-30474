@@ -29,6 +29,11 @@ RSpec.describe UserOrder, type: :model do
       @user_order.valid?
       expect(@user_order.errors.full_messages).to include("Area can't be blank")
     end
+    it 'area_idが1の場合保存できない' do
+      @user_order.area_id = 1
+      @user_order.valid?
+      expect(@user_order.errors.full_messages).to include("Area can't be blank")
+    end
     it 'municipalityが空だと保存できない' do
       @user_order.municipality = nil
       @user_order.valid?
