@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :area
   belongs_to_active_hash :days
   belongs_to :user
-  has_one :purchase
+  has_one :order
 
   has_one_attached :image
 
