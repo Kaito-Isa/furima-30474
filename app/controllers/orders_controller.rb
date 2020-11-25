@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
   def index
     @user_order = UserOrder.new
-      unless current_user != @item.user || @item.order.present? 
+      unless current_user != @item.user || @item.order.blank? 
       redirect_to root_path
       end
   end
